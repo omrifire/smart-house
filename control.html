@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smart house</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"><!-- קישור לסגנון של בוטסטראפ -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;400;700&display=swap" rel="stylesheet"> <!-- הוספת פונט  -->
+
+    <style>
+html { height: 100%;}
+/* שימוש ב- Orbitron לכותרות */
+h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif; }
+
+/* הגדרת הרקע לכל הדף */
+body {
+    font-family: 'Rajdhani', sans-serif;/* שימוש ב- Rajdhani לכל שאר הטקסט */
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/035/090/668/small/ai-generated-colorful-fireworks-with-bokeh-lights-background-with-copy-space-for-celebration-and-anniversary-concept-generative-ai-photo.jpg');/* קישור לתמונת רקע */
+    background-size: cover; /* מתאים את התמונה לגודל המסך */
+    background-position: center; /* ממקם את התמונה במרכז */
+    background-repeat: no-repeat; /* מונע חזרה על התמונה */
+    height: 100%; /* מבטיח שהרקע יתפוס את כל המסך */
+    margin: 0;/* מרווחים בסביבת הדף */
+    }
+
+        /* עיצוב הכפתורים */
+        button {
+            background-color: rgba(0, 0, 0, 0.6);/* צבע רקע */
+            color: rgb(255, 255, 255);/* צבע טקסט */
+            padding: 10px 20px;/* מרווח בתוך הכפתור */
+            font-size: 18px;/* גודל טקסט */
+            border: none;/* ללא גבולות */
+            margin: 10px;/* מרווח בין הכפתורים */
+        border-radius: 5px;/* פינות מעוגלות */
+
+        }
+
+        button:hover {
+            background-color: rgba(0, 0, 0, 0.8); /* צבע רקע כאשר העכבר על הכפתור */
+        }
+
+        nav{
+            background-color: #b68c5a !important; /* צבע רקע תפריט הניווט */
+        }
+
+       
+
+       
+       
+    </style>
+</head>
+
+<body>
+    <!-- כרטיס ניווט באתר -->
+    <nav class="navbar navbar-expand-lg  fw-bold"><!-- תצוגת תפריט ניווט באתר -->
+        <div class="container-fluid"><!-- תצוגת תפריט ניווט באתר -->
+        <a class="navbar-brand" href="control.html">IOTHOME</a><!-- כותרת האתר -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span><!-- כפתור תפריט ניווט -->
+        </button>
+        <div class="collapse navbar-collapse" >
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0"><!-- תפריט ניווט באתר -->
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="control.html">Home</a><!-- קישור לדף הבית -->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="about.html">ABOUT US</a> <!-- קישור לדף ABOUT US -->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="locked Down.html">security</a><!-- קישור לדף security -->
+            </li>
+                </ul>
+        </div>
+        </div>
+    </nav>
+
+
+        
+           <!-- תמונות עם כפתורים -->
+        <div class="container mt-5 "><!-- יצירת תיבת טקסט -->
+            <div class="row  d-flex justify-content-center align-items-center gx-3"><!-- יצירת שורה עם כרטיסים -->
+                <!-- חדר מאוור -->
+                <div class="col d-flex justify-content-center align-items-center " ><!-- יצירת עמודה עם כפתורים -->
+                    <div class="card text-white w-100"><!-- יצירת כרטיס עם תמונה וכפתורים -->
+                        <img class="card-img " src="https://static01.nyt.com/images/2019/03/24/travel/24trending-shophotels1/24trending-shophotels1-superJumbo.jpg"  width="100%" height="250px" alt="Card image"><!-- תמונה של חדר מאוור -->
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center"><!-- יצירת כפתורים עבור עוצמת המאוור -->
+                            <div class="dropdown"><!-- תפריט נפתח עם כפתורים -->
+                                <button class="btn btn-secondary dropdown-toggle btn btn-dark" class="button" data-bs-toggle="dropdown" aria-expanded="false">FAN LEVEL</button><!-- כפתור עבור עוצמת המאוור -->
+                                <ul class="dropdown-menu"><!-- תפריט נפתח עם כפתורים -->
+                                  <li><a class="dropdown-item" id="off" >off</a></li><!-- כפתור עבור עוצמת המאוור -->
+                                  <li><a class="dropdown-item" id="low" >low</a></li><!-- כפתור עבור עוצמת המאוור -->
+                                  <li><a class="dropdown-item" id="med" >medium</a></li><!-- כפתור עבור עוצמת המאוור -->
+                                  <li><a class="dropdown-item" id="high3" >high</a></li><!-- כפתור עבור עוצמת המאוור -->
+                                </ul>
+                              </div>  
+                        </div>
+                      </div>
+                </div>
+
+               <!--  חדר ווילון-->
+                <div class="col d-flex justify-content-center"><!-- יצירת עמודה עם כפתורים -->
+                    <div class="card text-white w-100"><!-- יצירת כרטיס עם תמונה וכפתורים -->
+                        <img class="card-img " src="https://www.thespruce.com/thmb/_xQMAqSNbX2bjnfXDKOdtaZRFaI=/2048x0/filters:no_upscale():max_bytes(150000):strip_icc()/put-together-a-perfect-guest-room-1976987-hero-223e3e8f697e4b13b62ad4fe898d492d.jpg"  width="100%" height="250px" alt="Card image"><!-- תמונה של חדר שינה -->
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center"><!-- יצירת כפתורים עבור ווילון -->
+                           <div class="dropdown"><!-- תפריט נפתח עם כפתורים -->
+                                <button class="btn btn-secondary dropdown-toggle btn btn-dark" class="button" data-bs-toggle="dropdown" aria-expanded="false">curtain</button><!-- כפתור עבור ווילון -->
+                                <ul class="dropdown-menu"><!-- תפריט נפתח עם כפתורים -->
+                                <li><a class="dropdown-item" id="up">up</a></li><!-- כפתור עבור פתיחת הווילון -->
+                                <li><a class="dropdown-item" id="down">down</a></li><!-- כפתור עבור סגירת הווילון -->
+                                <li><a class="dropdown-item" id="stop">stop</a></li><!-- כפתור עבור עצירת הווילון -->
+                              </ul>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+
+            <!--יצירת כרטיס עם שני כפתורים עבור חיישן התנועה והסלנואיד-->
+            <div class="row  d-flex justify-content-center align-items-center gx-3" ><!-- יצירת שורה עם כרטיסים -->
+                <div class="col mt-3 d-flex justify-content-center align-items-center"><!-- יצירת עמודה עם כפתורים -->
+                    <div class="card text-white w-100"><!-- יצירת כרטיס עם תמונה וכפתורים -->
+                        <img class="card-img " src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"  width="100%" height="250px" alt="Card image"><!-- תמונה של סלון -->
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center"><!-- יצירת כפתור עבור סלנואיד וחיישן התנועה -->
+                            <button class="button" id="salbut" class="btn btn-dark">lock</button><!-- כפתור עבור הסלנואיד -->
+                            <button class="button" id="hcsr" class="btn">movement in the living room</button><!-- כפתור עבור חיישן התנועה -->
+                        </div>
+                      </div>
+                </div>
+
+               <!-- יצירת כרטיס עם שני כפתורים עבור חיישן המרחק ומנוע הסרוו-->
+                <div class="col d-flex justify-content-center mt-3"><!-- יצירת עמודה עם כפתורים -->
+                    <div class="card text-white w-100"><!-- יצירת כרטיס עם תמונה וכפתורים -->
+                        <img class="card-img " src=" https://images.unsplash.com/photo-1592595896616-c37162298647?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"  width="100%" height="250px" alt="Card image"><!-- תמונה של חדר ילדים -->
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center"><!-- יצירת כפתור עבור שער וחיישן המרחק -->
+                            <button class="button" id="servobut" class="btn btn-dark">gate</button><!-- כפתור עבור שער -->
+                            <button class="button" id="ultrasonic" class="btn">someone is here</button><!-- כפתור עבור חיישן המרחק -->
+                        </div>
+                      </div>
+                </div>
+            </div>
+        
+
+</body>
+
+</html>
+<!-- קוד ג'אווה סקריפט -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!--אפשור שימוש בפיירבייס. -->
+    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-app-compat.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-auth-compat.js"></script>
+    <!-- אפשור אינטרקציה עם הפיירבייס.-->
+    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-database-compat.js"></script>
+
+    <script>
+        //מנגנון התחברות לפיירבייס
+        const firebaseConfig = {
+            apiKey: "AIzaSyACp-Ncy7nb1IQ4n_CEtdYDu6cmcGR-s3Q", // מפתח האימות שלנו
+            authDomain: "iothome-5ac01.firebaseapp.com",// כתובת האימות שלנו
+            projectId: "iothome-5ac01",// מזהה  את הפרויקט שלנו
+            storageBucket: "iothome-5ac01.firebasestorage.app",// כתובת האחסון שלנו
+            messagingSenderId: "498197575823",// מזהה ההודעות שלנו
+            appId: "1:498197575823:web:39570bdfa60ca0e1f118fa"// מזהה את האפליקציה שלנו  
+        };
+    
+        firebase.initializeApp(firebaseConfig);// אתחול הפיירבייס עם הכתובת שלנו
+
+
+//בדיקת חיבור לפיירבייס בזמן אמת
+firebase.database().ref('.info/connected').on('value', function(snapshot) {// מאזין לשינוי במסד הנתונים
+    if (snapshot.val() === true) {// בודק האם החיבור מתבצע
+        console.log("Connected to Firebase");//   הופעת הודעה אם מחובר בקונסול
+    } else {// במידה ואין חיבור
+        console.log("Not connected to Firebase");//הופעת הודעה אם מנותק בקונסול
+    }
+});
+
+ // שליטה בשער
+const servo = firebase.database().ref('/omrido/RX'); // שומר את ההפניה למסד הנתונים בתוך משתנה servo
+document.getElementById("servobut").addEventListener("click", () => { // מאזין ללחיצה על הכפתור
+    servo.once("value").then(snapshot => { // מבקש את הערך הנוכחי ממסד הנתונים רק פעם אחת
+        let newValue = snapshot.val() === 192 ? 193 : 192; // אם הערך 192 שולח 193 ולהפך
+        console.log("שער - שולח ערך:", newValue); // הדפסת הערך שנשלח לפיירבייס לצורך בדיקה
+        servo.set(newValue); // שולח את הערך החדש לפיירבייס
+    });
+});
+servo.on("value", snapshot => { // מאזין לשינוי בזמן אמת במסד הנתונים ולפי זה מעדכן תמיד את הצבע
+    console.log("שער - קיבל ערך חדש:", snapshot.val()); // הדפסת הערך שהתקבל מפיירבייס לצורך בדיקה
+    document.getElementById("servobut").className = `btn btn-lg ${snapshot.val() === 193 ? 'btn-success' : 'btn-danger'}`; // עדכון צבע הכפתור בהתאם לערך
+});
+
+// שליטה בסולנואיד (נעילה ופתיחה)
+const salbut = firebase.database().ref('/omrido/RX'); // שמירת ההפניה למסד הנתונים
+document.getElementById("salbut").addEventListener("click", () => { // מאזין ללחיצה על הכפתור
+    salbut.once("value").then(snapshot => { // מקבל את הערך הנוכחי מפיירבייס
+        let newValue = snapshot.val() === 128 ? 129 : 128; // אם הערך 128 שולח 129 ולהפך
+        console.log("סולנואיד - שולח ערך:", newValue); // הדפסת הערך שנשלח לפיירבייס לצורך בדיקה
+        salbut.set(newValue); // שולח את הערך החדש לפיירבייס
+    });
+});
+salbut.on("value", snapshot => { // מאזין לשינוי בזמן אמת במסד הנתונים ולפי זה מעדכן תמיד את הצבע
+    console.log("סולנואיד - קיבל ערך חדש:", snapshot.val()); // הדפסת הערך שהתקבל מפיירבייס לצורך בדיקה
+    document.getElementById("salbut").className = `btn btn-lg ${snapshot.val() === 129 ? 'btn-success' : 'btn-danger'}`; // עדכון צבע הכפתור בהתאם לערך
+});
+
+
+        //שליטה בעוצמת מאורר (+)   
+        const fanoff = firebase.database().ref('/omrido/RX');//שומר את ההפניה למסד הנתונים בתוך המשתנה fanoff
+        document.getElementById("off").addEventListener("click", () => {//לוקח את האלמנט ומקשיב לאירוע לחיצה על כפתור ומפעיל את הפנוקצייה בלחיצה 
+            firebase.database().ref('/omrido/RX').set(0);  // הכנסת נתון 0 אל האלמנט בפיירבייס 
+        });
+        const fanlow = firebase.database().ref('/omrido/RX');//שומר את ההפניה למסד הנתונים בתוך המשתנה fanlow
+        document.getElementById("low").addEventListener("click", () => {//לוקח את האלמנט ומקשיב לאירוע לחיצה על כפתור ומפעיל את הפנוקצייה בלחיצה 
+            firebase.database().ref('/omrido/RX').set(1);  //הכנסת נתון 1 אל האלמנט בפיירבייס 
+        });
+        const fanmid = firebase.database().ref('/omrido/RX');//שומר את ההפניה למסד הנתונים בתוך המשתנה fanmid
+        document.getElementById("med").addEventListener("click", () => {//לוקח את האלמנט ומקשיב לאירוע לחיצה על כפתור ומפעיל את הפנוקצייה בלחיצה 
+            firebase.database().ref('/omrido/RX').set(2);  //הכנסת נתון 2 אל האלמנט בפיירבייס 
+        });
+        const fanhigh = firebase.database().ref('/omrido/RX');//שומר את ההפניה למסד הנתונים בתוך המשתנה fanhigh
+        document.getElementById("high3").addEventListener("click", () => {//לוקח את האלמנט ומקשיב לאירוע לחיצה על כפתור ומפעיל את הפנוקצייה בלחיצה 
+            firebase.database().ref('/omrido/RX').set(3);  //הכנסת נתון 3 אל האלמנט בפיירבייס 
+            console.log("high3")
+        });
+    
+        //שינוי פעולת ווילון
+        const curtainup = firebase.database().ref('/omrido/RX');//שומר את ההפניה למסד הנתונים בתוך המשתנה curtainup
+        document.getElementById("up").addEventListener("click", () => {//לוקח את האלמנט ומקשיב לאירוע לחיצה על כפתור ומפעיל את הפנוקצייה בלחיצה 
+            firebase.database().ref('/omrido/RX').set(66);  //הכנסת נתון 64 אל האלמנט בפיירבייס
+        });
+        const curtaindown = firebase.database().ref('/omrido/RX');//שומר את ההפניה למסד הנתונים בתוך המשתנה curtaindown
+        document.getElementById("down").addEventListener("click", () => {//לוקח את האלמנט ומקשיב לאירוע לחיצה על כפתור ומפעיל את הפנוקצייה בלחיצה 
+            firebase.database().ref('/omrido/RX').set(65);  //הכנסת נתון 65 אל האלמנט בפיירבייז
+        });
+        const curtainstop = firebase.database().ref('/omrido/RX');//שומר את ההפניה למסד הנתונים בתוך המשתנה curtaindown
+        document.getElementById("stop").addEventListener("click", () => {//לוקח את האלמנט ומקשיב לאירוע לחיצה על כפתור ומפעיל את הפנוקצייה בלחיצה 
+            firebase.database().ref('/omrido/RX').set(67);  //הכנסת נתון 67 אל האלמנט בפיירבייז
+        });
+
+        // שינוי כפתור  אולטרהסוניק לפי מרחק 
+    // פונקציה האחראית לראות כמה מרחק יש מהסוניק ומתריאה על עצם בגינה
+    const ultrasonic = firebase.database().ref('/omrido/TX/B');//   ultrasonic שומר את ההפניה למסד הנתונים בתוך המשתנה 
+        ultrasonic.on("value", (snapshot)=>{ // מאזין לשינוי במסד הנתונים
+        console.log(snapshot.val())// מדפיס את הערך שהתקבל מהפיירבייס
+        if(Number(snapshot.val())<30){// תנאי בדיקה האם המרחק קטן מ30
+        document.getElementById("ultrasonic").style.backgroundColor = "red"; // משנה את צבע הרקע לאדום כאשר  יש תנועה במרחק של פחות מ30
+        }
+        else{ document.getElementById("ultrasonic").style.backgroundColor = "black";// משנה את צבע הרקע לשחור כאשר יש תנועה של מעל ל30
+
+        }});
+
+    // חיישן תנועה
+        const hcsr = firebase.database().ref('/omrido/TX/A');//   hcsr שומר את ההפניה למסד הנתונים בתוך המשתנה
+        hcsr.on("value", (snapshot)=>{ // מאזין לשינוי במסד הנתונים
+        console.log(snapshot.val())// מדפיס את הערך שהתקבל מהפיירבייס
+        if(Number(snapshot.val())){//בודק האם מתקבל מהפיירבייס זרם 1 לוגי 
+            document.getElementById("hcsr").style.backgroundColor = "red";// משנה את צבע הרקע לאדום כאשר מתקבל 1 לוגי לפיירבייס    
+        }
+        else{
+            document.getElementById("hcsr").style.backgroundColor = "black";// משנה את הרקע לשחור כאשר מתקבל 0 לוגי לפייירבייס
+        }
+            });
+        ;
+
+    
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;400;700&display=swap" rel="stylesheet"> <!-- הוספת פונט  -->
+    <style>
+        
+        body {
+            background-image: url('https://media.designcafe.com/wp-content/uploads/2020/10/19151239/luxury-hallway-wallpapers-for-your-home.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .input {
+            background-color: rgba(209, 207, 190, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4 input" id="logIn">
+                <h1>SIGN-IN</h1>
+                <form onsubmit="event.preventDefault(); loginUser();">
+                    <div class="mb-3">
+                        <label for="loginEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="loginEmail">
+                    </div>
+                    <div class="mb-3">
+                        <label for="loginPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="loginPassword">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                <p class="mt-3">dont have an account? <a href="#" onclick="toggleForms()">click here to sign up</a></p>
+            </div>
+
+            <div class="col-md-4 input hidden" id="signUp">
+                <h1>SIGN-UP</h1>
+                <form onsubmit="event.preventDefault(); saveInput();">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="pass" class="form-label">Create Password</label>
+                        <input type="password" class="form-control" id="pass">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Gender</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
+                            <label class="form-check-label" for="male">Male</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                            <label class="form-check-label" for="female">Female</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <p class="mt-3">already signed?<a href="#" onclick="toggleForms()">click here to log in</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+         //מנגנון התחברות לפיירבייס
+         const firebaseConfig = {
+            apiKey: "AIzaSyACp-Ncy7nb1IQ4n_CEtdYDu6cmcGR-s3Q", 
+            authDomain: "iothome-5ac01.firebaseapp.com",
+            projectId: "iothome-5ac01",
+            storageBucket: "iothome-5ac01.firebasestorage.app",
+            messagingSenderId: "498197575823",
+            appId: "1:498197575823:web:39570bdfa60ca0e1f118fa"  
+        };
+        //  איתחול חיבור הפיירבייס עם הכתובת ממוסד הנתונים שלנו
+        firebase.initializeApp(firebaseConfig);
+
+
+//בדיקת חיבור לפיירבייס בזמן אמת
+firebase.database().ref('.info/connected').on('value', function(snapshot) {
+    if (snapshot.val() === true) {
+        console.log("Connected to Firebase");//   הופעת הודעה אם מחובר בקונסול
+    } else {
+        console.log("Not connected to Firebase");//הופעת הודעה אם מנותק בקונסול
+    }
+});
+
+
+        function toggleForms() {
+            document.getElementById("logIn").classList.toggle("hidden");
+            document.getElementById("signUp").classList.toggle("hidden");
+        }
+
+        function saveInput() {
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("pass").value;
+            console.log("Email:", email, "Password:", password);
+        }
+
+        function loginUser() {
+            let email = document.getElementById("loginEmail").value;
+            let password = document.getElementById("loginPassword").value;
+            console.log("Login Email:", email, "Login Password:", password);
+        }
+    </script>
+</body>
+</html>
