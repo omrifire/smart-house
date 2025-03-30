@@ -25,6 +25,7 @@ body {
     background-repeat: no-repeat; /* מונע חזרה על התמונה */
     height: 100%; /* מבטיח שהרקע יתפוס את כל המסך */
     margin: 0;
+    overflow-y: hidden; /* מונע גלילה אנכית */
     }
 
 nav{
@@ -35,33 +36,34 @@ nav{
     font-size: 1.5rem;/* גודל גופן */
     padding: 10px 20px;/* מרווחים */
     }
-
-    #camera {
-    width: 50%;/* רוחב תיבת המצלמה */
-    height: 30vh;/* גובה תיבת המצלמה */
-    object-fit: cover;/* מתאים את התמונה לתיבת הטקסט */
-    border: 3px solid #b68c5a;/* מסגרת */
-    border-radius: 10px;/* פינות מעוגלות */
-    background-color: #000000ac;/* רקע חלקית שקוף */
-    margin-bottom: 10px;/* מרווח מתחת */
-    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5)) /* צל */
-            drop-shadow(0 2.5px 2.5px rgba(255, 255, 255, 0.5))
+    #camera1 {
+    width: 320px; /* רוחב המצלמה */
+    height: 240px; /* גובה המצלמה */
+    object-fit: cover; /* מתאים את הווידאו למסגרת */
+    border: 3px solid #b68c5a; /* מסגרת */
+    border-radius: 10px; /* פינות מעוגלות */
+    background-color: #000000ac; /* רקע חצי שקוף */
+    margin-bottom: 10px; /* מרווח מתחת */
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5)) 
+            drop-shadow(0 2.5px 2.5px rgba(255, 255, 255, 0.5)) 
             drop-shadow(1px 1px 0 rgba(172, 172, 172, 0.6));
 }
 
 .card {
-    width: 50%;/* רוחב כרטיס */
+    width: 320px; /* רוחב הכרטיס */
 }
 
 #togbutton {
-    width: 100%;/* רוחב כפתור */
+    width: 100%; /* רוחב מלא לכפתור */
 }
 
-@media only screen and (max-width: 600px) {/* תצוגה רק במכשירים ניידים */
-    #camera, .card {/* תיבת המצלמה והכרטיס */
-        width: 80%;/* רוחב 80% */
+@media only screen and (max-width: 600px) { /* תצוגה במכשירים ניידים */
+    #camera1, .card { /* תיבת המצלמה והכרטיס */
+        width: 90%; /* רוחב 90% במסכים קטנים */
+        max-width: 320px; /* הגבלת רוחב מקסימלי */
     }
 }
+
 
     </style>    
 </head>
@@ -92,8 +94,8 @@ nav{
 
     
     <div class="container d-flex flex-column justify-content-center align-items-center vh-100"><!-- תוכן הדף -->
-        <iframe id="camera" src=""></iframe><!-- תיבת טקסט עם תמונה נטענת -->
-        <div class="card bg-dark text-white p-4 shadow-lg text-center w-50 mt-3"><!-- כרטיס עם רקע כהה וטקסט לבן -->
+        <div><iframe id = "camera1"></iframe></div>
+                <div class="card bg-dark text-white p-4 shadow-lg text-center w-50 mt-3"><!-- כרטיס עם רקע כהה וטקסט לבן -->
             <h2>Do you want to activate lockdown mode?</h2><!-- כותרת ראשית -->
             <button id="togbutton" class="btn btn-success btn-toggle mt-3 w-100">Activate</button><!-- כפתור להפעלת מצב נעילה -->
         </div>
@@ -102,7 +104,6 @@ nav{
     
 
 
-    <!-- All scripts should be inside the body tag -->
     <!-- קוד ג'אווה סקריפט -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!--אפשור שימוש בפיירבייס. -->
@@ -112,52 +113,50 @@ nav{
     <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-database-compat.js"></script>
 
     <script>
-        //מנגנון התחברות לפיירבייס
-        const firebaseConfig = {
-            apiKey: "AIzaSyACp-Ncy7nb1IQ4n_CEtdYDu6cmcGR-s3Q", // מפתח האימות שלנו
-            authDomain: "iothome-5ac01.firebaseapp.com",// כתובת האימות שלנו
-            projectId: "iothome-5ac01",// מזהה  את הפרויקט שלנו
-            storageBucket: "iothome-5ac01.firebasestorage.app",// כתובת האחסון שלנו
-            messagingSenderId: "498197575823",// מזהה ההודעות שלנו
-            appId: "1:498197575823:web:39570bdfa60ca0e1f118fa"// מזהה את האפליקציה שלנו  
+       // הגדרות חיבור לפיירבייס
+       const firebaseConfig = {
+            apiKey: "AIzaSyACp-Ncy7nb1IQ4n_CEtdYDu6cmcGR-s3Q",
+            authDomain: "iothome-5ac01.firebaseapp.com",
+            projectId: "iothome-5ac01",
+            storageBucket: "iothome-5ac01.appspot.com", // תיקון השגיאה
+            messagingSenderId: "498197575823",
+            appId: "1:498197575823:web:39570bdfa60ca0e1f118fa",
+            databaseURL: "https://iothome-5ac01-default-rtdb.firebaseio.com/" // הוספת URL למסד הנתונים
         };
-    
-        firebase.initializeApp(firebaseConfig);// אתחול הפיירבייס עם הכתובת שלנו
 
-        //בדיקת חיבור לפיירבייס בזמן אמת
-        firebase.database().ref('.info/connected').on('value', function(snapshot) {
-            if (snapshot.val() === true) {
-                console.log("Connected to Firebase");//   הופעת הודעה אם מחובר בקונסול
-            } else {
-                console.log("Not connected to Firebase");//הופעת הודעה אם מנותק בקונסול
-            }
-        });
-        const button = document.getElementById('togbutton');///מוצא את  האלמנט שלנו  ושומר במשתנה הכפתור 
-        let isActive = false; //משתנה המחזיק את מצב הכפתור
+        // אתחול פיירבייס
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        function setupCameraFeed() {
+            const camElement = document.getElementById("camera1");
+            camElement.alt = "Camera 1 Feed Loading...";
+
+            const camRef = database.ref("cam_smhouse/espServerIP/IP");
+
+            camRef.on("value", (snapshot) => {
+                const camIp = snapshot.val();
+                console.log("Camera IP:", camIp);
+
+                if (camIp) {
+                    camElement.src = `http://${camIp}:81/stream`; // שימוש נכון ב-Template Literal
+                } else {
+                    console.error("No camera IP found in Firebase.");
+                    camElement.alt = "Camera IP not found!";
+                }
+            }, 
+            (error) => {
+                console.error("Error fetching camera IP:", error);
+                camElement.alt = "Error loading camera feed.";
+            });
+        }
+
+        // הפעלת הפונקציה בעת טעינת הדף
+        window.onload = setupCameraFeed;
         
-    function setupCameraFeed() {// פונקציה שמציגה את המצלמה
-    document.getElementById("camera").innerText = "Camera Feed Loading...";// מציג הודעה על טעינת המצלמה
-    const camRef = database.ref("/cam_smhouse/espServerIP/IP");// מציאת המצלמה בפיירבייס
-    camRef.on("value", (snapshot) => {// האזנה לשינויים במצלמה
-    const camIp = snapshot.val();1// שמירת כתובת המצלמה במשתנה
-    console.log(camIp);// הדפסת כתובת המצלמה בקונסול
-    if (camIp) {// תנאי אם קיימת כתובת מצלמה
-    document.getElementById("camera").src ='http://${camIp}:81/stream';// הכנסת כתובת המצלמה לתיבת הטקסט
-    } else {// אם אין כתובת מצלמה
-    console.error("No camera IP found in Firebase.");// הדפסת הודעת שגיאה בקונסול
-    document.getElementById("camera").innerText = "Camera IP not found!";// הצגת הודעת שגיאה
-    }
-    }, 
-    (error) => {// אם יש שגיאה בקריאת כתובת המצלמה
-    console.error("Error fetching camera IP:", error);// הדפסת הודעת שגיאה בקונסול
-    document.getElementById("camera").innerText = "Error loading camera feed.";// הצגת הודעת שגיאה
-    });
-  }
-  window.onload = function() {// פונקציה שמפעילה את המצלמה בעת טעינת הדף
-    setupCameraFeed();// קריאה לפונקציה שמציגה את המצלמה
-  };
-
-
+  const button = document.getElementById('togbutton');///מוצא את  האלמנט שלנו  ושומר במשתנה הכפתור 
+        let isActive = false; //משתנה המחזיק את מצב הכפתור
+     
         // כפתור lock down
         button.addEventListener('click', function() {// האזנה לאירוע הלחיצה על הכפתור
             isActive = !isActive;// הופך את המצב 

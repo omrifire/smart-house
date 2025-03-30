@@ -144,27 +144,32 @@ body {
 </body>
 
 </html>
-<!-- קוד ג'אווה סקריפט -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!--אפשור שימוש בפיירבייס. -->
-    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-app-compat.js"></script> 
-    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-auth-compat.js"></script>
-    <!-- אפשור אינטרקציה עם הפיירבייס.-->
-    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-database-compat.js"></script>
+ <!-- קוד ג'אווה סקריפט -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+ <!--אפשור שימוש בפיירבייס. -->
+ <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-app-compat.js"></script> 
+ <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-auth-compat.js"></script>
+ <!-- אפשור אינטרקציה עם הפיירבייס.-->
+ <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-database-compat.js"></script>
 
-    <script>
-        //מנגנון התחברות לפיירבייס
-        const firebaseConfig = {
-            apiKey: "AIzaSyACp-Ncy7nb1IQ4n_CEtdYDu6cmcGR-s3Q", // מפתח האימות שלנו
-            authDomain: "iothome-5ac01.firebaseapp.com",// כתובת האימות שלנו
-            projectId: "iothome-5ac01",// מזהה  את הפרויקט שלנו
-            storageBucket: "iothome-5ac01.firebasestorage.app",// כתובת האחסון שלנו
-            messagingSenderId: "498197575823",// מזהה ההודעות שלנו
-            appId: "1:498197575823:web:39570bdfa60ca0e1f118fa"// מזהה את האפליקציה שלנו  
-        };
+ <script>
+    // הגדרות חיבור לפיירבייס
+    const firebaseConfig = {
+         apiKey: "AIzaSyACp-Ncy7nb1IQ4n_CEtdYDu6cmcGR-s3Q",
+         authDomain: "iothome-5ac01.firebaseapp.com",
+         projectId: "iothome-5ac01",
+         storageBucket: "iothome-5ac01.appspot.com", // תיקון השגיאה
+         messagingSenderId: "498197575823",
+         appId: "1:498197575823:web:39570bdfa60ca0e1f118fa",
+         databaseURL: "https://iothome-5ac01-default-rtdb.firebaseio.com/" // הוספת URL למסד הנתונים
+     };
+
+     // אתחול פיירבייס
+     firebase.initializeApp(firebaseConfig);
+     const database = firebase.database();
+
     
-        firebase.initializeApp(firebaseConfig);// אתחול הפיירבייס עם הכתובת שלנו
-
+     
 
 //בדיקת חיבור לפיירבייס בזמן אמת
 firebase.database().ref('.info/connected').on('value', function(snapshot) {// מאזין לשינוי במסד הנתונים
@@ -265,6 +270,5 @@ salbut.on("value", snapshot => { // מאזין לשינוי בזמן אמת במ
     
         
     </script>
-
 </body>
 </html>

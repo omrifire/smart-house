@@ -38,7 +38,7 @@
         <div class="row justify-content-center">
             <div class="col-md-4 input" id="logIn">
                 <h1>SIGN-IN</h1>
-                <form onsubmit="event.preventDefault(); loginUser();">
+                <form onsubmit="event.preventDefault(); signin();">
                     <div class="mb-3">
                         <label for="loginEmail" class="form-label">Email address</label>
                         <input type="email" class="form-control" id="loginEmail">
@@ -54,7 +54,7 @@
 
             <div class="col-md-4 input hidden" id="signUp">
                 <h1>SIGN-UP</h1>
-                <form onsubmit="event.preventDefault(); saveInput();">
+                <form onsubmit="event.preventDefault(); register();">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
                         <input type="email" class="form-control" id="email">
@@ -84,40 +84,39 @@
             </div>
         </div>
     </div>
+    
+  <!-- טעינת Firebase (הסרת הגרסאות הכפולות) -->
+<script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-database-compat.js"></script>
 
-    <script>
-         //מנגנון התחברות לפיירבייס
-         const firebaseConfig = {
-            apiKey: "AIzaSyACp-Ncy7nb1IQ4n_CEtdYDu6cmcGR-s3Q", 
-            authDomain: "iothome-5ac01.firebaseapp.com",
-            projectId: "iothome-5ac01",
-            storageBucket: "iothome-5ac01.firebasestorage.app",
-            messagingSenderId: "498197575823",
-            appId: "1:498197575823:web:39570bdfa60ca0e1f118fa"  
-        };
-        //  איתחול חיבור הפיירבייס עם הכתובת ממוסד הנתונים שלנו
-        firebase.initializeApp(firebaseConfig);
+<script>
+    // קונפיגורציית פיירבייס
+    const firebaseConfig = {
+        apiKey: "AIzaSyACp-Ncy7nb1IQ4n_CEtdYDu6cmcGR-s3Q",
+        authDomain: "iothome-5ac01.firebaseapp.com",
+        databaseURL: "https://iothome-5ac01-default-rtdb.firebaseio.com",
+        projectId: "iothome-5ac01",
+        storageBucket: "iothome-5ac01.appspot.com",
+        messagingSenderId: "498197575823",
+        appId: "1:498197575823:web:4e8ee64af3c1b832f118fa"
+    };
 
+    // אתחול Firebase
+    firebase.initializeApp(firebaseConfig);
 
-//בדיקת חיבור לפיירבייס בזמן אמת
-firebase.database().ref('.info/connected').on('value', function(snapshot) {
-    if (snapshot.val() === true) {
-        console.log("Connected to Firebase");//   הופעת הודעה אם מחובר בקונסול
+    // בדיקה אם Firebase נטען
+    console.log("Firebase Loaded:", typeof firebase !== "undefined");
+    console.log("Firebase Apps:", firebase.apps.length);
+    if (firebase.apps.length > 0) {
+        console.log("Firebase is ready to use!");
     } else {
-        console.log("Not connected to Firebase");//הופעת הודעה אם מנותק בקונסול
+        console.error("Firebase is not initialized.");
     }
-});
-
 
         function toggleForms() {
             document.getElementById("logIn").classList.toggle("hidden");
             document.getElementById("signUp").classList.toggle("hidden");
-        }
-
-        function saveInput() {
-            let email = document.getElementById("email").value;
-            let password = document.getElementById("pass").value;
-            console.log("Email:", email, "Password:", password);
         }
 
         function loginUser() {
@@ -125,6 +124,38 @@ firebase.database().ref('.info/connected').on('value', function(snapshot) {
             let password = document.getElementById("loginPassword").value;
             console.log("Login Email:", email, "Login Password:", password);
         }
-    </script>
+        
+
+        function register() {
+    const email = document.getElementById("email").value; 
+    const password = document.getElementById("pass").value;
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(userCredential => {
+            const user = userCredential.user;
+            firebase.database().ref("users/" + user.uid).set({ email: user.email, uid: user.uid });
+            alert("Registration successful!");
+        })
+        .catch(error => alert(error.message));
+        }
+
+        
+        // פונקציה להתחברות משתמש קיים
+        function signin() {
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+    firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(() => {
+            alert("Login successful!");
+            window.location.href = "control.html"; // הפניה לעמוד השליטה
+        })
+        .catch(error => alert(error.message));
+    }
+
+
+
+       
+
+</script>
 </body>
 </html>
+
