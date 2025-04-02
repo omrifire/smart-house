@@ -9,83 +9,83 @@
     <style>
         
         body {
-            background-image: url('https://media.designcafe.com/wp-content/uploads/2020/10/19151239/luxury-hallway-wallpapers-for-your-home.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-image: url('https://media.designcafe.com/wp-content/uploads/2020/10/19151239/luxury-hallway-wallpapers-for-your-home.jpg');/* קישור לתמונת רקע */
+            background-size: cover;/* מתאים את התמונה לגודל המסך */
+            background-position: center;/* ממקם את התמונה במרכז */
+            background-repeat: no-repeat;/* מונע חזרה על התמונה */
+            height: 100vh;/* מבטיח שהרקע יתפוס את כל גובה המסך */
+            display: flex;/* תצוגה גמישה */
+            justify-content: center;/* יישור לאורך הדף */
+            align-items: center;/* יישור לרוחב הדף */
         }
 
         .input {
-            background-color: rgba(209, 207, 190, 0.5);
-            border-radius: 10px;
-            padding: 20px;
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
+            background-color: rgba(209, 207, 190, 0.5);/* צבע רקע חצי שקוף */
+            border-radius: 10px;/* פינות מעוגלות */
+            padding: 20px;/* מרווחים פנימיים */
+            max-width: 400px;/* רוחב מקסימלי */
+            width: 100%;/* רוחב מלא */
+            text-align: center;/* טקסט במרכז */
         }
 
         .hidden {
-            display: none;
+            display: none;/* הסתרת אלמנט */
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-4 input" id="logIn">
-                <h1>SIGN-IN</h1>
-                <form onsubmit="event.preventDefault(); signin();">
-                    <div class="mb-3">
-                        <label for="loginEmail" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="loginEmail">
-                    </div>
-                    <div class="mb-3">
-                        <label for="loginPassword" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="loginPassword">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
-                </form>
-                <p class="mt-3">dont have an account? <a href="#" onclick="toggleForms()">click here to sign up</a></p>
-            </div>
+<div class="container">
+<div class="row justify-content-center"><!-- יישור התוכן במרכז -->
+<div class="col-md-4 input" id="logIn"><!-- עמוד הכניסה -->
+<h1>SIGN-IN</h1><!-- כותרת -->
+<form onsubmit="event.preventDefault(); signin();"><!-- טופס הכניסה -->
+<div class="mb-3">
+<label for="loginEmail" class="form-label">Email address</label><!-- תווית עבור שדה הכניסה -->
+<input type="email" class="form-control" id="loginEmail"><!-- שדה הכניסה -->   
+</div>
+<div class="mb-3">
+<label for="loginPassword" class="form-label">Password</label><!-- תווית עבור שדה הסיסמה -->
+<input type="password" class="form-control" id="loginPassword"><!-- שדה הסיסמה -->
+</div>
+<button type="submit" class="btn btn-primary">Login</button><!-- כפתור הכניסה -->
+</form>
+<p class="mt-3">dont have an account? <a href="#" onclick="toggleForms()">click here to sign up</a></p><!-- קישור להרשמה -->
+</div>
 
-            <div class="col-md-4 input hidden" id="signUp">
-                <h1>SIGN-UP</h1>
-                <form onsubmit="event.preventDefault(); register();">
+            <div class="col-md-4 input hidden" id="signUp"><!-- עמוד ההרשמה -->
+                <h1>SIGN-UP</h1><!-- כותרת -->
+                <form onsubmit="event.preventDefault(); register();"><!-- טופס ההרשמה -->
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email">
+                        <label for="email" class="form-label">Email address</label><!-- תווית עבור שדה הכניסה -->
+                        <input type="email" class="form-control" id="email"><!-- שדה הכניסה -->
                     </div>
                     <div class="mb-3">
-                        <label for="pass" class="form-label">Create Password</label>
-                        <input type="password" class="form-control" id="pass">
+                        <label for="pass" class="form-label">Create Password</label><!-- תווית עבור שדה הסיסמה -->
+                        <input type="password" class="form-control" id="pass"><!-- שדה הסיסמה -->
                     </div>
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1"><!-- תיבת סימון -->
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label><!-- תווית עבור תיבת הסימון -->
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Gender</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
-                            <label class="form-check-label" for="male">Male</label>
+                        <label class="form-label">Gender</label><!-- תווית עבור מגדר -->
+                        <div class="form-check"><!-- תיבת רדיו עבור מגדר -->
+                        <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked><!-- תיבת רדיו עבור גבר -->
+                            <label class="form-check-label" for="male">Male</label><!-- תווית עבור גבר -->
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gender" id="female" value="female">
-                            <label class="form-check-label" for="female">Female</label>
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female"><!-- תיבת רדיו עבור אישה -->
+                            <label class="form-check-label" for="female">Female</label><!-- תווית עבור אישה -->
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button><!-- כפתור ההגשה -->
                 </form>
-                <p class="mt-3">already signed?<a href="#" onclick="toggleForms()">click here to log in</a></p>
+                <p class="mt-3">already signed?<a href="#" onclick="toggleForms()">click here to log in</a></p><!-- קישור לכניסה -->
             </div>
         </div>
     </div>
     
-  <!-- טעינת Firebase (הסרת הגרסאות הכפולות) -->
+  <!-- טעינת Firebase  -->
 <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-database-compat.js"></script>
@@ -106,55 +106,44 @@
     firebase.initializeApp(firebaseConfig);
 
     // בדיקה אם Firebase נטען
-    console.log("Firebase Loaded:", typeof firebase !== "undefined");
-    console.log("Firebase Apps:", firebase.apps.length);
-    if (firebase.apps.length > 0) {
-        console.log("Firebase is ready to use!");
+    console.log("Firebase Loaded:", typeof firebase !== "undefined");// בדוק אם Firebase נטען
+    console.log("Firebase Apps:", firebase.apps.length);// בדוק את מספר האפליקציות
+    if (firebase.apps.length > 0) {// בדוק אם יש אפליקציות
+        console.log("Firebase is ready to use!");//הודעת הצלחת האתחול
     } else {
-        console.error("Firebase is not initialized.");
+        console.error("Firebase is not initialized.");// הודעת שגיאה באתחול
     }
-
         function toggleForms() {
-            document.getElementById("logIn").classList.toggle("hidden");
-            document.getElementById("signUp").classList.toggle("hidden");
+            document.getElementById("logIn").classList.toggle("hidden");// החלפת מצב הכניסה
+            document.getElementById("signUp").classList.toggle("hidden");// החלפת מצב ההרשמה
         }
-
-        function loginUser() {
-            let email = document.getElementById("loginEmail").value;
-            let password = document.getElementById("loginPassword").value;
-            console.log("Login Email:", email, "Login Password:", password);
+        function loginUser() {// פונקציה לכניסת משתמש
+            let email = document.getElementById("loginEmail").value;// קבלת כתובת האימייל
+            let password = document.getElementById("loginPassword").value;// קבלת הסיסמה
+            console.log("Login Email:", email, "Login Password:", password);// הדפסת פרטי הכניסה לקונסול
         }
-        
-
-        function register() {
-    const email = document.getElementById("email").value; 
-    const password = document.getElementById("pass").value;
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(userCredential => {
-            const user = userCredential.user;
-            firebase.database().ref("users/" + user.uid).set({ email: user.email, uid: user.uid });
-            alert("Registration successful!");
+        function register() {// פונקציה להרשמת משתמש חדש
+    const email = document.getElementById("email").value; // קבלת כתובת האימייל
+    const password = document.getElementById("pass").value;// קבלת הסיסמה
+    firebase.auth().createUserWithEmailAndPassword(email, password)// יצירת משתמש חדש
+        .then(userCredential => {//במקרה של הצלחה
+            const user = userCredential.user;// קבלת פרטי המשתמש
+            firebase.database().ref("users/" + user.uid).set({ email: user.email, uid: user.uid });// שמירת פרטי המשתמש במסד הנתונים
+            alert("Registration successful!");// הודעת הצלחה
         })
-        .catch(error => alert(error.message));
+        .catch(error => alert(error.message));// במקרה של שגיאה שליחת הודעת שגיאה
         }
-
-        
-        // פונקציה להתחברות משתמש קיים
-        function signin() {
-    const email = document.getElementById("loginEmail").value;
-    const password = document.getElementById("loginPassword").value;
-    firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(() => {
-            alert("Login successful!");
-            window.location.href = "control.html"; // הפניה לעמוד השליטה
+        function signin() { // פונקציה להתחברות משתמש קיים
+    const email = document.getElementById("loginEmail").value;// קבלת כתובת האימייל
+    const password = document.getElementById("loginPassword").value;// קבלת הסיסמה
+    firebase.auth().signInWithEmailAndPassword(email, password)// התחברות עם אימייל וסיסמה
+        .then(() => {// במקרה של הצלחה
+            alert("Login successful!");// הודעת הצלחה
+            window.location.href = "control.html"; // הפניה לעמוד הראשי
         })
-        .catch(error => alert(error.message));
-    }
-
-
-
-       
-
+        .catch(error => alert(error.message));//// במקרה של שגיאה שליחת הודעת שגיאה
+        }
+    
 </script>
 </body>
 </html>

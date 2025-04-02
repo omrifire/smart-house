@@ -6,42 +6,47 @@
     <title>About Us - smart house</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><!-- קישור לקובץ סגנון של בוטסטראפ -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;400;700&display=swap" rel="stylesheet"> <!-- הוספת פונט  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
 html { height: 100%;} /* הגדרת הדף כ100% */
 
 /* שימוש ב- Orbitron לכותרות */
 h1, h2, h3 {
-            font-family: 'Orbitron', sans-serif; }
-
+         font-family: 'Orbitron', sans-serif; }/* שימוש ב- Orbitron לכותרות */    
+     
 /* הגדרת הרקע לכל הדף */
 body {
-    font-family: 'Rajdhani', sans-serif;/* שימוש ב- Rajdhani לכל שאר הטקסט */
-    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/035/090/668/small/ai-generated-colorful-fireworks-with-bokeh-lights-background-with-copy-space-for-celebration-and-anniversary-concept-generative-ai-photo.jpg');/* קישור לתמונת רקע */
-    background-size: cover; /* מתאים את התמונה לגודל המסך */
+    font-family: 'Rajdhani', sans-serif;/*הגדרת פונט עבור  כיתוב רגיל*/
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/035/090/668/small/ai-generated-colorful-fireworks-with-bokeh-lights-background-with-copy-space-for-celebration-and-anniversary-concept-generative-ai-photo.jpg');
+    background-size: cover; /* מתאים את התמונה  לגודל המסך */
     background-position: center; /* ממקם את התמונה במרכז */
     background-repeat: no-repeat; /* מונע חזרה על התמונה */
-    height: 100%; /* מבטיח שהרקע יתפוס את כל המסך */
-    margin: 0;/* מסיר את המרווחים הבלתי נראים */
-    }
-
+    min-height: 100vh; /* דואג שהרקע יתפוס לפחות את כל גובה המסך */
+    height: auto; /* מאפשר לתוכן להתרחב ולמשוך את הרקע איתו */
+    margin: 0; /* מונע שוליים לא רצויים */
+    background-attachment: fixed; /* גורם לרקע להישאר קבוע כשאני גולל */
+}
     nav{
-            background-color: #b68c5a !important; /* חום בהיר */
-        }
+    background-color: #b68c5a ; /* צבע לתפריט הניווט */
+    }
+               
+
 
         .container {
-            flex: 1;/* מקביל ל- height: 100% */
-            display: flex;/* גמיש כדי שהתוכן יהיה באמצע */
-            flex-direction: column;/* יישור אנכי */
+            flex: 1;/* מאפשר לתוכן להתרחב ולמלא את כל החלל הפנוי */
+            display: flex;/*תצוגה גמישה על מנת שנמרכז את התוכן */
+            flex-direction: column;/*יישור אנכי */
             justify-content: center;/* יישור לאורך הדף */
             align-items: center;/* יישור לרוחב הדף */
-            padding-top: 80px; /* כדי שלא יסתיר הניווט */
+            padding-top: 80px; /* מרווח מלמעלה */
             padding: 20px;/* מרווחים פנימיים */
             border-radius: 10px;/* פינות מעוגלות */
         }
         .about-container {
-            display: flex;/* גמיש כדי שהתוכן יהיה באמצע */
+            display: flex;/* תצוגה גמישה */
         }
+        
         .about-image img {
             max-width: 55%;/* תמונה גדולה יחסית */
             border-radius: 10px;/* פינות מעוגלות */
@@ -78,43 +83,73 @@ body {
             background-color: #d1a276 !important; /* צבע כהה יותר לתאים */
         }
        
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column; /* במקום להציג בשורה, להציג בערימה */
+        align-items: center;/* למרכז את התוכן */
+        text-align: center;/* למרכז את הטקסט */
+    }
+
+    .about-image img {
+        max-width: 100%; /* להקטין את התמונה במסכים קטנים */
+        height: auto; /* לשמור על יחס גובה-רוחב */
+        margin-bottom: 20px; /* להוסיף מרווח מתחת לתמונה */
+    }
+
+    .content {
+        max-width: 90%; /* למנוע שהתוכן יהיה צר מדי */
+        padding: 15px;/* להקטין את המרווחים הפנימיים */
+    }
+
+    .title {
+        font-size: 2rem; /* להקטין כותרת במסכים קטנים */
+    }
+
+    .table {
+        font-size: 0.9rem; /* להקטין גודל טקסט בטבלה */
+    }
+}
+
     </style>
 </head>
 <body>
-<!-- כרטיס ניווט באתר -->
   <!-- כרטיס ניווט באתר -->
-  <nav class="navbar navbar-expand-lg  fw-bold"><!-- תצוגת תפריט ניווט באתר -->
-    <div class="container-fluid"><!-- תצוגת תפריט ניווט באתר -->
-    <a class="navbar-brand" href="control.html">IOTHOME</a><!-- כותרת האתר -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span><!-- כפתור תפריט ניווט -->
-    </button>
-    <div class="collapse navbar-collapse" >
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0"><!-- תפריט ניווט באתר -->
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="control.html">Home</a><!-- קישור לדף הבית -->
-        </li>
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="about.html">ABOUT US</a> <!-- קישור לדף ABOUT US -->
-        </li>
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="locked Down.html">security</a><!-- קישור לדף security -->
-        </li>
+  <nav class="navbar navbar-expand-lg navbar-light fw-bold"> <!-- תפריט ניווט -->
+    <div class="container-fluid"> 
+        <a class="navbar-brand" href="control.html">IOTHOME</a><!-- לוגו -->
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <!-- כפתור תפריט -->
+            <span class="navbar-toggler-icon"></span><!-- אייקון כפתור -->
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent"><!-- תוכן התפריט -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0"><!-- רשימת פריטים בתפריט -->
+                <li class="nav-item">
+                    <a class="nav-link active" href="control.html">Home</a><!-- קישור לדף הבית -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="about.html">ABOUT US</a><!-- קישור לדף אודות -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="locked-Down.html">security</a><!-- קישור לדף אבטחה -->
+                </li>
             </ul>
-    </div>
+        </div>
     </div>
 </nav>
 
-<div class="container mt-5"><!-- תוכן הדף -->
+<div class="container mt-5">
     <div class="title text-center">About Us</div><!-- כותרת ראשית -->
-    <div class="row about-container"><!-- שורה עם תמונה ותוכן -->
-        <div class="col-md-4 about-image"><!-- תמונה -->
-            <img src="images/WhatsApp Image 2025-03-25 at 17.20.59_fe496878.jpg" alt="Omri and Ido working on project" class="img-fluid"><!-- תמונה ראשית -->
+    <div class="row about-container text-center"><!-- שורה עם תמונה ותוכן -->
+        <div class=" col-12 col-md-4 about-image">
+            <img src="images/WhatsApp Image 2025-03-25 at 17.20.59_fe496878.jpg" alt="Omri and Ido working on project" 
+            class="img-fluid"><!-- תמונה ראשית -->
         </div>
-        <div class="col-md-8 content text-center"><!-- תוכן -->
+        <div class="col-12 col-md-8 content text-center"><!-- תוכן -->
             <p>Welcome to IoT House! We are two passionate students, Omri Firestain and Ido Jan, working on our final project in electronics.</p>
-            <p>Our smart home system allows users to control various electronic devices such as fan, entry gate, curtain, door lock, and light that adjust to external brightness levels. Additionally, we have implemented an alert system with a buzzer for motion detection in the living room and a distance sensor for outdoor monitoring.</p>
-            <p>Our goal is to create a seamless and efficient smart home experience using advanced IoT technologies.</p>
+            <p>Our smart home system allows users to control various electronic devices such as fan, entry gate, curtain, door lock,
+                 and light that adjust to external brightness levels. Additionally, we have implemented an alert 
+                 system with a buzzer for motion detection in the living room and a distance sensor for outdoor monitoring.</p>
+            <p>Our goal is to create a seamless and efficient smart home experience using advanced IoT technologies.</p> <!-- תוכן -->
         </div>
     </div>
     <table class="table table-bordered text-center mt-5 "><!-- טבלת פרטים -->

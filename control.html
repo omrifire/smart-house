@@ -6,150 +6,169 @@
     <title>smart house</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"><!-- קישור לסגנון של בוטסטראפ -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;400;700&display=swap" rel="stylesheet"> <!-- הוספת פונט  -->
-
     <style>
-html { height: 100%;}
-/* שימוש ב- Orbitron לכותרות */
-h1, h2, h3 {
-            font-family: 'Orbitron', sans-serif; }
-
-/* הגדרת הרקע לכל הדף */
-body {
-    font-family: 'Rajdhani', sans-serif;/* שימוש ב- Rajdhani לכל שאר הטקסט */
-    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/035/090/668/small/ai-generated-colorful-fireworks-with-bokeh-lights-background-with-copy-space-for-celebration-and-anniversary-concept-generative-ai-photo.jpg');/* קישור לתמונת רקע */
-    background-size: cover; /* מתאים את התמונה לגודל המסך */
-    background-position: center; /* ממקם את התמונה במרכז */
-    background-repeat: no-repeat; /* מונע חזרה על התמונה */
-    height: 100%; /* מבטיח שהרקע יתפוס את כל המסך */
-    margin: 0;/* מרווחים בסביבת הדף */
-    }
-
-        /* עיצוב הכפתורים */
+        html { height: 100%;}
+        /* שימוש ב- Orbitron לכותרות */
+        h1, h2, h3 {
+                    font-family: 'Orbitron', sans-serif; }
+        
+        body {/* הגדרת הרקע לכל הדף */
+            font-family: 'Rajdhani', sans-serif;/* הגדרת פונט עבור  כיתוב רגיל */
+            background-image: url('https://static.vecteezy.com/system/resources/thumbnails/035/090/668/small/ai-generated-colorful-fireworks-with-bokeh-lights-background-with-copy-space-for-celebration-and-anniversary-concept-generative-ai-photo.jpg');/* קישור לתמונת רקע */
+            background-size: cover; /* מתאים את התמונה לגודל המסך */
+            background-position: center; /* ממקם את התמונה במרכז */
+            background-repeat: no-repeat; /* מונע חזרה על התמונה */
+            height: 100%; /* מבטיח שהרקע יתפוס את כל המסך */
+            margin: 0;/* מרווחים מחוץ הדף */
+            }
+            
         button {
-            background-color: rgba(0, 0, 0, 0.6);/* צבע רקע */
+            background-color: rgba(0, 0, 0, 0.6);/* צבע רקע הכפתור */
             color: rgb(255, 255, 255);/* צבע טקסט */
             padding: 10px 20px;/* מרווח בתוך הכפתור */
             font-size: 18px;/* גודל טקסט */
-            border: none;/* ללא גבולות */
+            border: none;/* הסרת גבול */
             margin: 10px;/* מרווח בין הכפתורים */
-        border-radius: 5px;/* פינות מעוגלות */
-
-        }
-
-        button:hover {
-            background-color: rgba(0, 0, 0, 0.8); /* צבע רקע כאשר העכבר על הכפתור */
-        }
-
+            border-radius: 5px;/* פינות מעוגלות */
+            width: 100%;/* רוחב הכפתור */
+            max-width: 250px;/* רוחב מקסימלי של הכפתור */}
+        
         nav{
-            background-color: #b68c5a !important; /* צבע רקע תפריט הניווט */
-        }
+            background-color: #b68c5a ; /* צבע רקע תפריט הניווט */
+            }
+        .navbar-toggler {
+            border: none;/* מסיר גבול מהכפתור */
+            outline: none;}/* מסיר קו מתחת לכפתור */
+        .navbar-toggler {
+            padding: 5px 10px; /* מקטין את גודל הכפתור */
+            font-size: 1rem; /* מוודא שהאייקון לא יהיה גדול מדי */
+            border: none; /* מסיר מסגרת אם יש */
+            display: flex;/* תצוגה גמישה */
+            align-items: center;/* מיישר את התוכן במרכז הכפתור */
+            justify-content: center;/* מיישר את התוכן במרכז הכפתור */
+            width: auto; /* מבטיח שהרוחב יהיה בהתאם לתוכן */}
 
-       
+        .container {
+            padding: 10px;/* מרווחים פנימיים */
+                }
 
-       
-       
-    </style>
-</head>
+@media (max-width: 768px) {/* הגדרת מסך קטן שלא יהיה יותר מ-768 פיקסלים */
+    .container {
+        padding: 5px;/* מרווחים פנימיים */
+    }
 
+}
+.card {
+    margin-bottom: 10px;/* מרווח מתחת לכרטיס */
+    border-radius: 10px;/* פינות מעוגלות */
+    overflow: hidden;/* מונע חיתוך של התמונה */
+}
+.card {
+    overflow: visible !important; /* מונע חיתוך של התפריט */
+}
+.dropdown-menu {
+    position: absolute !important;/* מוודא שהתפריט יופיע מעל הכרטיס */
+    z-index: 1050; /* מבטיח שהתפריט יהיה מעל האלמנטים */
+}
+   
+</style>
+</head>        
 <body>
-    <!-- כרטיס ניווט באתר -->
-    <nav class="navbar navbar-expand-lg  fw-bold"><!-- תצוגת תפריט ניווט באתר -->
-        <div class="container-fluid"><!-- תצוגת תפריט ניווט באתר -->
-        <a class="navbar-brand" href="control.html">IOTHOME</a><!-- כותרת האתר -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span><!-- כפתור תפריט ניווט -->
+  <!-- כרטיס ניווט באתר -->
+  <nav class="navbar navbar-expand-lg navbar-light fw-bold"> <!-- תפריט ניווט -->
+    <div class="container-fluid"> 
+        <a class="navbar-brand" href="control.html">IOTHOME</a><!-- לוגו -->
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <!-- כפתור תפריט -->
+            <span class="navbar-toggler-icon"></span><!-- אייקון כפתור -->
         </button>
-        <div class="collapse navbar-collapse" >
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0"><!-- תפריט ניווט באתר -->
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="control.html">Home</a><!-- קישור לדף הבית -->
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="about.html">ABOUT US</a> <!-- קישור לדף ABOUT US -->
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="locked Down.html">security</a><!-- קישור לדף security -->
-            </li>
-                </ul>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent"><!-- תוכן התפריט -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0"><!-- רשימת פריטים בתפריט -->
+                <li class="nav-item">
+                    <a class="nav-link active" href="control.html">Home</a><!-- קישור לדף הבית -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="about.html">ABOUT US</a><!-- קישור לדף אודות -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="locked-Down.html">security</a><!-- קישור לדף אבטחה -->
+                </li>
+            </ul>
         </div>
-        </div>
-    </nav>
-
-
+    </div>
+</nav>      
+ <!-- תמונות עם כפתורים -->
+ <div class="container mt-5 "><!-- יצירת תיבת טקסט -->
+ <div class="row  d-flex justify-content-center align-items-center gx-3"><!-- יצירת שורה עם כרטיסי חדר מאוור ווילון -->
+ <!-- חדר מאוור -->
+ <div class="col d-flex justify-content-center align-items-center " ><!-- יצירת עמודה עם כפתורים -->
+ <div class="card text-white w-100"><!-- יצירת כרטיס עם תמונה וכפתורים -->
+<img class="card-img " src="https://static01.nyt.com/images/2019/03/24/travel/24trending-shophotels1/24trending-shophotels1-superJumbo.jpg"  
+width="100%" height="250px" alt="Card image"><!-- תמונה של חדר מאוור -->
+<div class="card-img-overlay d-flex flex-wrap justify-content-center align-items-center  gap-2"><!-- יצירת כפתורים עבור עוצמת המאוור -->
+<div class="dropdown"><!-- תפריט נפתח עם כפתורים -->
+<button class="button btn btn-secondary dropdown-toggle btn btn-dark"  data-bs-toggle="dropdown"
+ aria-expanded="false">FAN LEVEL</button><!-- כפתור עבור עוצמת המאוור -->
+<ul class="dropdown-menu"><!-- תפריט נפתח עם כפתורים -->
+<li><a class="dropdown-item" id="off" >off</a></li><!-- כפתור עבור עוצמת המאוור -->
+<li><a class="dropdown-item" id="low" >low</a></li><!-- כפתור עבור עוצמת המאוור -->
+<li><a class="dropdown-item" id="med" >medium</a></li><!-- כפתור עבור עוצמת המאוור -->
+<li><a class="dropdown-item" id="high3" >high</a></li><!-- כפתור עבור עוצמת המאוור -->
+</ul>
+</div>  
+</div>
+</div>
+</div>
         
-           <!-- תמונות עם כפתורים -->
-        <div class="container mt-5 "><!-- יצירת תיבת טקסט -->
-            <div class="row  d-flex justify-content-center align-items-center gx-3"><!-- יצירת שורה עם כרטיסים -->
-                <!-- חדר מאוור -->
-                <div class="col d-flex justify-content-center align-items-center " ><!-- יצירת עמודה עם כפתורים -->
-                    <div class="card text-white w-100"><!-- יצירת כרטיס עם תמונה וכפתורים -->
-                        <img class="card-img " src="https://static01.nyt.com/images/2019/03/24/travel/24trending-shophotels1/24trending-shophotels1-superJumbo.jpg"  width="100%" height="250px" alt="Card image"><!-- תמונה של חדר מאוור -->
-                        <div class="card-img-overlay d-flex justify-content-center align-items-center"><!-- יצירת כפתורים עבור עוצמת המאוור -->
-                            <div class="dropdown"><!-- תפריט נפתח עם כפתורים -->
-                                <button class="btn btn-secondary dropdown-toggle btn btn-dark" class="button" data-bs-toggle="dropdown" aria-expanded="false">FAN LEVEL</button><!-- כפתור עבור עוצמת המאוור -->
-                                <ul class="dropdown-menu"><!-- תפריט נפתח עם כפתורים -->
-                                  <li><a class="dropdown-item" id="off" >off</a></li><!-- כפתור עבור עוצמת המאוור -->
-                                  <li><a class="dropdown-item" id="low" >low</a></li><!-- כפתור עבור עוצמת המאוור -->
-                                  <li><a class="dropdown-item" id="med" >medium</a></li><!-- כפתור עבור עוצמת המאוור -->
-                                  <li><a class="dropdown-item" id="high3" >high</a></li><!-- כפתור עבור עוצמת המאוור -->
-                                </ul>
-                              </div>  
-                        </div>
-                      </div>
-                </div>
-
-               <!--  חדר ווילון-->
-                <div class="col d-flex justify-content-center"><!-- יצירת עמודה עם כפתורים -->
-                    <div class="card text-white w-100"><!-- יצירת כרטיס עם תמונה וכפתורים -->
-                        <img class="card-img " src="https://www.thespruce.com/thmb/_xQMAqSNbX2bjnfXDKOdtaZRFaI=/2048x0/filters:no_upscale():max_bytes(150000):strip_icc()/put-together-a-perfect-guest-room-1976987-hero-223e3e8f697e4b13b62ad4fe898d492d.jpg"  width="100%" height="250px" alt="Card image"><!-- תמונה של חדר שינה -->
-                        <div class="card-img-overlay d-flex justify-content-center align-items-center"><!-- יצירת כפתורים עבור ווילון -->
-                           <div class="dropdown"><!-- תפריט נפתח עם כפתורים -->
-                                <button class="btn btn-secondary dropdown-toggle btn btn-dark" class="button" data-bs-toggle="dropdown" aria-expanded="false">curtain</button><!-- כפתור עבור ווילון -->
-                                <ul class="dropdown-menu"><!-- תפריט נפתח עם כפתורים -->
-                                <li><a class="dropdown-item" id="up">up</a></li><!-- כפתור עבור פתיחת הווילון -->
-                                <li><a class="dropdown-item" id="down">down</a></li><!-- כפתור עבור סגירת הווילון -->
-                                <li><a class="dropdown-item" id="stop">stop</a></li><!-- כפתור עבור עצירת הווילון -->
-                              </ul>
-                            </div>
-                        </div>
-                      </div>
-                </div>
-            </div>
-
-            <!--יצירת כרטיס עם שני כפתורים עבור חיישן התנועה והסלנואיד-->
-            <div class="row  d-flex justify-content-center align-items-center gx-3" ><!-- יצירת שורה עם כרטיסים -->
-                <div class="col mt-3 d-flex justify-content-center align-items-center"><!-- יצירת עמודה עם כפתורים -->
-                    <div class="card text-white w-100"><!-- יצירת כרטיס עם תמונה וכפתורים -->
-                        <img class="card-img " src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"  width="100%" height="250px" alt="Card image"><!-- תמונה של סלון -->
-                        <div class="card-img-overlay d-flex justify-content-center align-items-center"><!-- יצירת כפתור עבור סלנואיד וחיישן התנועה -->
-                            <button class="button" id="salbut" class="btn btn-dark">lock</button><!-- כפתור עבור הסלנואיד -->
-                            <button class="button" id="hcsr" class="btn">movement in the living room</button><!-- כפתור עבור חיישן התנועה -->
-                        </div>
-                      </div>
-                </div>
-
-               <!-- יצירת כרטיס עם שני כפתורים עבור חיישן המרחק ומנוע הסרוו-->
-                <div class="col d-flex justify-content-center mt-3"><!-- יצירת עמודה עם כפתורים -->
-                    <div class="card text-white w-100"><!-- יצירת כרטיס עם תמונה וכפתורים -->
-                        <img class="card-img " src=" https://images.unsplash.com/photo-1592595896616-c37162298647?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"  width="100%" height="250px" alt="Card image"><!-- תמונה של חדר ילדים -->
-                        <div class="card-img-overlay d-flex justify-content-center align-items-center"><!-- יצירת כפתור עבור שער וחיישן המרחק -->
-                            <button class="button" id="servobut" class="btn btn-dark">gate</button><!-- כפתור עבור שער -->
-                            <button class="button" id="ultrasonic" class="btn">someone is here</button><!-- כפתור עבור חיישן המרחק -->
-                        </div>
-                      </div>
-                </div>
-            </div>
+<!--  חדר ווילון-->
+ <div class="col d-flex justify-content-center"><!-- יצירת עמודה עם כפתורים -->
+ <div class="card text-white w-100"><!-- יצירת כרטיס עם תמונה וכפתורים -->
+<img class="card-img " src="https://www.thespruce.com/thmb/_xQMAqSNbX2bjnfXDKOdtaZRFaI=/2048x0/filters:no_upscale():max_bytes(150000):strip_icc()/put-together-a-perfect-guest-room-1976987-hero-223e3e8f697e4b13b62ad4fe898d492d.jpg" 
+ width="100%" height="250px" alt="Card image"><!-- תמונה של חדר שינה -->
+<div class="card-img-overlay d-flex flex-wrap justify-content-center align-items-center  gap-2"><!-- יצירת כפתורים עבור ווילון -->
+<div class="dropdown"><!-- תפריט נפתח עם כפתורים -->
+<button class="button btn btn-secondary dropdown-toggle btn btn-dark "  data-bs-toggle="dropdown" aria-expanded="false">curtain</button><!-- כפתור עבור ווילון -->
+<ul class="dropdown-menu " ><!-- תפריט נפתח עם כפתורים -->
+<li><a class="dropdown-item" id="up">up</a></li><!-- כפתור עבור פתיחת הווילון -->
+<li><a class="dropdown-item" id="down">down</a></li><!-- כפתור עבור סגירת הווילון -->
+<li><a class="dropdown-item" id="stop">stop</a></li><!-- כפתור עבור עצירת הווילון -->
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
         
-
-</body>
-
+<!--יצירת כרטיס עם שני כפתורים עבור חיישן התנועה והסלנואיד-->
+<div class="row  d-flex justify-content-center align-items-center gx-3" ><!-- יצירת שורה עם כרטיסים -->
+<div class="col mt-3 d-flex justify-content-center align-items-center"><!-- יצירת עמודה עם כפתורים -->
+<div class="card text-white w-100"><!-- יצירת כרטיס עם תמונה וכפתורים -->
+<img class="card-img " src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+ width="100%" height="250px" alt="Card image"><!-- תמונה של סלון -->
+<div class="card-img-overlay d-flex flex-wrap justify-content-center align-items-center  gap-2"><!-- יצירת כפתור עבור סלנואיד וחיישן התנועה -->
+<button  id="salbut" class="button btn btn-dark">lock</button><!-- כפתור עבור הסלנואיד -->
+<button id="hcsr" class="button btn">movement in the living room</button><!-- כפתור עבור חיישן התנועה -->
+</div>
+</div>
+</div>
+        
+ <!-- יצירת כרטיס עם שני כפתורים עבור חיישן המרחק ומנוע הסרוו-->
+<div class="col d-flex justify-content-center mt-3"><!-- יצירת עמודה עם כפתורים -->
+<div class="card text-white w-100"><!-- יצירת כרטיס עם תמונה וכפתורים -->
+<img class="card-img " src=" https://images.unsplash.com/photo-1592595896616-c37162298647?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+ width="100%" height="250px" alt="Card image"><!-- תמונה של חדר ילדים -->
+<div class="card-img-overlay d-flex flex-wrap justify-content-center align-items-center  gap-2"><!-- יצירת כפתור עבור שער וחיישן המרחק -->
+<button  id="servobut" class="button btn btn-dark">gate</button><!-- כפתור עבור שער -->
+<button  id="ultrasonic" class="button  btn">someone is here</button><!-- כפתור עבור חיישן המרחק -->
+</div>
+</div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>
- <!-- קוד ג'אווה סקריפט -->
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
- <!--אפשור שימוש בפיירבייס. -->
- <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-app-compat.js"></script> 
+
+ <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-app-compat.js"></script>
  <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-auth-compat.js"></script>
- <!-- אפשור אינטרקציה עם הפיירבייס.-->
  <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-database-compat.js"></script>
 
  <script>
@@ -158,24 +177,21 @@ body {
          apiKey: "AIzaSyACp-Ncy7nb1IQ4n_CEtdYDu6cmcGR-s3Q",
          authDomain: "iothome-5ac01.firebaseapp.com",
          projectId: "iothome-5ac01",
-         storageBucket: "iothome-5ac01.appspot.com", // תיקון השגיאה
+         storageBucket: "iothome-5ac01.appspot.com", 
          messagingSenderId: "498197575823",
          appId: "1:498197575823:web:39570bdfa60ca0e1f118fa",
-         databaseURL: "https://iothome-5ac01-default-rtdb.firebaseio.com/" // הוספת URL למסד הנתונים
+         databaseURL: "https://iothome-5ac01-default-rtdb.firebaseio.com/" 
      };
 
      // אתחול פיירבייס
-     firebase.initializeApp(firebaseConfig);
-     const database = firebase.database();
-
-    
-     
+     firebase.initializeApp(firebaseConfig);// אתחול הפיירבייס עם ההגדרות שניתנו
+     const database = firebase.database();// שמירת ההפניה למסד הנתונים בתוך משתנה database
 
 //בדיקת חיבור לפיירבייס בזמן אמת
-firebase.database().ref('.info/connected').on('value', function(snapshot) {// מאזין לשינוי במסד הנתונים
+firebase.database().ref('.info/connected').on('value', function(snapshot) {// מאזין לשינוי במצב החיבור
     if (snapshot.val() === true) {// בודק האם החיבור מתבצע
         console.log("Connected to Firebase");//   הופעת הודעה אם מחובר בקונסול
-    } else {// במידה ואין חיבור
+    } else {
         console.log("Not connected to Firebase");//הופעת הודעה אם מנותק בקונסול
     }
 });
@@ -265,10 +281,6 @@ salbut.on("value", snapshot => { // מאזין לשינוי בזמן אמת במ
             document.getElementById("hcsr").style.backgroundColor = "black";// משנה את הרקע לשחור כאשר מתקבל 0 לוגי לפייירבייס
         }
             });
-        ;
-
-    
-        
-    </script>
+</script>
 </body>
 </html>
